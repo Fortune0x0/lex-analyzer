@@ -1,0 +1,5 @@
+//position := 3;
+myname = 3.
+l = myname * 50;
+print(l);
+end_of_text
