@@ -376,7 +376,11 @@ public:
 
 
 int main() {
-
+	//DO NOT HARDCODE TEXT FILE
+		//DO NOT HARDCODE TEXT FILE
+		//DO NOT HARDCODE TEXT FILE
+		//DO NOT HARDCODE TEXT FILE
+		//DO NOT HARDCODE TEXT FILE
 	Parser parser("test.txt");
 
 	//std::string filepath;
