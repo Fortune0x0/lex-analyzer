@@ -275,7 +275,33 @@ public:
 		}
 	}
 
+	bool isStatement() {
+		return currentToken.lexeme == "print" || currentToken.kind == "ID"
+			|| currentToken.lexeme == "if" || currentToken.lexeme == "while";
+	}
+	
 	void statements() {
+		if (isStatement()) {
+			statement();
+                                  
+			while (currentToken.lexeme == ";") {
+				next();
+				statement();
+			}
+
+			if (isStatement()) {
+				report("; \t\t\t\tmust seperate statements with \";\"");
+			}
+
+		}
+
+		else {
+			report("**statement** such as as assignment, conditional, iterative, or print statement");
+		}
+	}
+
+
+	void statement() {
 		if (currentToken.lexeme == "print") {
 			next();
 			expression();
@@ -305,11 +331,11 @@ public:
 			body();
 			match("end");
 		}
+
 		else {
-			report("**statement** such as as assignment, conditional, iterative, or print statement");
+			report("**statements** such assignment, conditional, iterative, or print statement");
 		}
 	}
-
 	void expression() {
 		simpleExpression();
 		if (currentToken.lexeme == "<" || currentToken.lexeme == "=<"
@@ -350,7 +376,6 @@ public:
 			next();
 			expression();
 			match(")");
-			next();
 			return;
 		}
 

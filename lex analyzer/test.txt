@@ -1,5 +1,9 @@
-//position := 3;
-myname = 3.
-l = myname * 50;
-print(l);
-end_of_text
+//2:10:>>>>> Bad symbol 'IDENTIFIER': expected one of ',' and ';'
+//   int a b;
+//          ^
+
+program simple :
+   int a b;
+   a := 1 ;
+   print b
+.
